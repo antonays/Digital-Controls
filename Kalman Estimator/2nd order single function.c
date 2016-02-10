@@ -1,6 +1,8 @@
 // First Order Kalman Estimator - No Pointers
 // built for labview function node
-// Anton Ayzenberg
+
+
+// Rhaeg
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,24 +12,11 @@
 float ud_rid [N];
 float yd_rid [N];
 
-static int n = 2 ; // update the order
-static int m = 4; // update this for different order m = 2*n;
+static int n = 2 ; 
+static int m = 4;
 
 void Estimate(float lambda, float gamma, float t_result[m]);
 
-// Linear Algebra Functions
-void MatrixByMatrix(float a[m][m],float b[m][m], float result[m][m]);
-void vectorByMatrix(float matrix[m][m], float vec[m], float result[m]);
-void MatrixByVector(float vector[m], float matrix[m][m], float result[m]);
-void MatrixByScalar(float scalar, float mat[m][m], float result[m][m]);
-void vectorByScalar( float v[m], float scalar, float result[m]);
-void VectorByVectorCR(float x[m], float y[m], float result[m][m]);
-float VectorByVectorRC(float v1[m], float v2[m]);
-void MatrixMatrixAddition(float mat1[m][m], float mat2[m][m], float result[m][m]);
-void vectorVectorAddition(float v1[m], float v2[m], float result[m]);
-void initiateIdentityMatrix(float result[m][m]);
-
-// Utility Functions
 void initializeData();
 void randomize(int randomFactor, float result[m]);
 void getPhi(int index, int size, float result[m]);
